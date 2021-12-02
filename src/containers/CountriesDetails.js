@@ -5,6 +5,7 @@ import CountryDetail from '../components/CountryDetail';
 
 const CountriesDetails = () => {
     const [countries, setCountries] = useState([]);
+    const [selectedCountry, setSelectedCountry] = useState(null)
     const [favCountries, setFavCountries] = useState([]);
 
      useEffect(() => {
@@ -21,22 +22,27 @@ const CountriesDetails = () => {
         setFavCountries([...favCountries, country]);
     }
 
+
     
     return (
         <>
         <TotalPopulation populations={countries.map((country)=>country.population)}/>
+        <CountryDetail country={selectedCountry} addFavCountry={addFavCountry} />
+        <FavouriteCountries favCountries={favCountries}/>
         <div className="countries-details">
-        {countries.map((country) => {
+        {countries.map((country, index) => {
             return (
-            <> 
+            <div key={index} onClick={(e) => {
+                e.preventDefault();
+                setSelectedCountry(country);
+            }} >
             <p>{country.name.common}</p>
             <p>{country.population}</p>
             {/* {(Object.keys(country.currencies).length != 0) ? country.currencies[Object.keys(country.currencies)[0]].name : ""} */}
             
-            </>
+            </div>
             )
         })}
-        <CountryDetail addFavCountry={addFavCountry} />
         {/* <FavouriteCountries favCountries={favCountries} />  */}
         
         </div>
