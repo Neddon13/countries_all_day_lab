@@ -19,7 +19,7 @@ const CountriesDetails = () => {
     }
 
     const addFavCountry = (country) => {
-        setFavCountries([...favCountries, country]);
+        setFavCountries(Array.from(new Set([...favCountries, country])));
     }
 
 
