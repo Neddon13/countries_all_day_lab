@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import TotalPopulation from '../components/TotalPopulation';
 import FavouriteCountries from '../components/FavouriteCountries';
 import CountryDetail from '../components/CountryDetail';
+import Country from '../components/Country';
 
 const CountriesDetails = () => {
     const [countries, setCountries] = useState([]);
@@ -28,25 +29,8 @@ const CountriesDetails = () => {
         <>
         <TotalPopulation populations={countries.map((country)=>country.population)}/>
         <CountryDetail country={selectedCountry} addFavCountry={addFavCountry} />
-        <FavouriteCountries favCountries={favCountries}/>
-        <div className="countries-details">
-        {countries.map((country, index) => {
-            return (
-            <div key={index} onClick={(e) => {
-                e.preventDefault();
-                setSelectedCountry(country);
-            }} >
-            <p>{country.name.common}</p>
-            <p>{country.population}</p>
-            {/* {(Object.keys(country.currencies).length != 0) ? country.currencies[Object.keys(country.currencies)[0]].name : ""} */}
-            
-            </div>
-            )
-        })}
-        {/* <FavouriteCountries favCountries={favCountries} />  */}
-        
-        </div>
-           
+        <FavouriteCountries favCountries={favCountries}/>   
+        <Country setSelectedCountry={setSelectedCountry} countries={countries}/> 
         </> 
     )
 };
