@@ -1,5 +1,65 @@
+body {
+  display: flex;
+}
+
+h2 {
+  border: 7px groove green;
+  border-radius: 20px;
+  padding: 10px;
+  filter: drop-shadow(30px 10px 4px rgb(0, 29, 145));
+  max-width: 380px;
+}
+
 
 
 .countries-details {
-  background-color: hotpink;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 50%;
+  position: relative;
+}
+
+.country {
+  margin: 10px;
+  border: 2px groove blue;
+  background-color:white;
+  border-radius: 5px;
+  padding: 10px;
+  color: rgb(5, 180, 28);
+}
+
+.selectedCountry {
+  margin: 10px;
+  border: 2px groove rgb(0, 0, 0);
+  background-color:rgb(5, 180, 28);
+  border-radius: 5px;
+  padding: 10px;
+  color: rgb(0, 79, 170);
+  height: auto;
+}
+
+.favs {
+  margin: 10px;
+  border: 2px groove blue;
+  background-color:white;
+  border-radius: 5px;
+  padding: 10px;
+  color: rgb(5, 180, 28);
+}
+
+.container_of_everything {
+  display: flex;
+  padding-left: 50%;
+  justify-content: right;
+  position: fixed;
+  
+  
+}
+
+.container_of_everything > div {
+  width: 50%;
+}
+
+.flag {
+  font-size: 100px;
 }

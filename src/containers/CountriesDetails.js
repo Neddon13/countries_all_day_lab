@@ -28,8 +28,10 @@ const CountriesDetails = () => {
     return (
         <>
         <TotalPopulation populations={countries.map((country)=>country.population)}/>
+        <div class = "container_of_everything">
         <CountryDetail country={selectedCountry} addFavCountry={addFavCountry} />
         <FavouriteCountries favCountries={favCountries}/>   
+        </div>
         <Country setSelectedCountry={setSelectedCountry} countries={countries}/> 
         </> 
     )

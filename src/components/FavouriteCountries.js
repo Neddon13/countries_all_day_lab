@@ -1,21 +1,20 @@
 const FavouriteCountries = ({favCountries}) => {
 
-        if (favCountries.length === 0) return "Favourite list empty"
+        if (favCountries.length === 0) return <p className='list-headings'>Favourite list empty</p>
         const favouriteCountries = favCountries.map((country) => {
             return ( 
-            <div>
-                <h3>{country.name.official}</h3>
+            <div className="favs">
+                <h3>{country.flag} {country.name.official}</h3>
                 <h5>{country.name.common}</h5>
-                {country.flag}
             </div>
             )
         })
 
         return (
-            <>
+            <div>
             <h3>Favourite countries</h3>
             {favouriteCountries}
-            </>
+            </div>
         )
 }
 

@@ -1,18 +1,17 @@
 const CountryDetail = ({country, addFavCountry}) => {
-if (!country) return "Please select a Country"
+if (!country) return <p className='list-headings' >Please select a Country</p>
 
-let currencyName
+let currencyNames = []
 for (let currency in country.currencies) {
-    currencyName = country.currencies[currency].name
+    currencyNames.push(<span>{country.currencies[currency].name}<br/> </span>)
 }
 
 
     return (
-        <div>
-            <h3>{country.name.official}</h3>
+        <div className="selectedCountry">
+            <h3>{country.flag} {country.name.official}</h3>
             <h5>{country.name.common}</h5>
-            <h4>Currency: {currencyName}</h4>
-            {country.flag}
+            <h4>Currency: {currencyNames}</h4>
             <button onClick={(e) => {
                 e.preventDefault()
                 addFavCountry(country)
